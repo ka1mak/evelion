@@ -19,9 +19,10 @@ fa_xmark.addEventListener('click', e => {
   burger_container.classList.remove('burgerActive')
 })
 
-
-
 select.addEventListener('change', e => {
+  if (e.target.value === 4) {
+    database('/products/')
+  }
   database(`/?category=${e.target.value}`)
 })
 
@@ -34,7 +35,7 @@ if (username !== null) {
 
 function cardTamplete (image_url, title, description, price, id) {
   return `
-    <div class="card">
+    <div class="card" data-tilt>
       <div class="card-img">
         <img src="${image_url}" alt="">
       </div>
